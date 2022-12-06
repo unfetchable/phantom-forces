@@ -1,5 +1,5 @@
--- phantom forces, silent aim - for Karlo#4262
--- by Harmer#0123, working 12/6/2022
+-- phantom forces silent aim
+-- by Harmer#0123, for Karlo
 
 -- variables
 local players = game:GetService("Players");
@@ -103,6 +103,6 @@ task.spawn(function()
     text.Size = 13
 
     while task.wait(0.9) do
-        text.Text = "offline's silent | for Karlo | "..os.date("%x %X", os.time())
+        text.Text = "offline's silent | "..os.date("%x %X", os.time())
     end
 end)
