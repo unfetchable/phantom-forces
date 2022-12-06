@@ -1,4 +1,4 @@
--- phantom forces, silent aim
+-- phantom forces, silent aim - for Karlo#4262
 -- by Harmer#0123, working 12/6/2022
 
 -- variables
@@ -65,7 +65,7 @@ local function trajectory(dir, velocity, accel, speed)
 
     local time = (r1>0 and r1) or (r2>0 and r2) or (r3>0 and r3) or r4;
     local bullet = 0.5*accel*time + dir/time + velocity;
-    return bullet, time; -- kill me
+    return bullet, time;
 end
 
 -- hooks
@@ -87,3 +87,22 @@ old = hookfunction(particle.new, function(args)
     end
     return old(args);
 end);
+
+task.spawn(function()
+    local text = Drawing.new('Text')
+
+    text.Transparency = 1
+    text.Visible = true
+    text.ZIndex = 1
+    text.Center = true
+    text.Outline = true
+    text.Color = Color3.new(1, 1, 1)
+    text.OutlineColor = Color3.new(0, 0, 0)
+    text.Position = Vector2.new(workspace.CurrentCamera.ViewportSize.X/2, 30)
+    text.Font = Drawing.Fonts.Plex
+    text.Size = 13
+
+    while task.wait(0.9) do
+        text.Text = "offline's silent | for Karlo | "..os.date("%x %X", os.time())
+    end
+end)
